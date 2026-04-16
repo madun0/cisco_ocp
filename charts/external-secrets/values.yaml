@@ -1,0 +1,12 @@
+namespace: external-secrets
+
+subscription:
+  name: external-secrets-operator
+  channel: stable
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+
+operatorConfig:
+  name: cluster
+
+awsAccountId: REPLACE_ME

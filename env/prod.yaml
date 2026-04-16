@@ -1,0 +1,10 @@
+env: prod
+enabled: "false"
+externalSecretsNamespace: external-secrets
+secretStoreName: aws-secretsmanager
+awsCredentialsSecretName: aws-secretsmanager-creds
+auth0IdpName: auth0
+auth0Issuer: https://prod-example.us.auth0.com/
+auth0ClientId: PROD_AUTH0_CLIENT_ID
+auth0RemoteSecretKey: auth0/openshift
+server:https://kubernetes.default.svc

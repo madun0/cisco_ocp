@@ -1,0 +1,57 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: auth0-idp
+  namespace: openshift-gitops
+spec:
+  goTemplate: true
+  goTemplateOptions:
+    - missingkey=error
+  generators:
+    - matrix:
+        generators:
+          - git:
+              repoURL: https://github.com/madun0/cisco_ocp.git
+              revision: main
+              files:
+                - path: config/repo.yaml
+          - git:
+              repoURL: https://github.com/madun0/cisco_ocp.git
+              revision: main
+              files:
+                - path: env/*.yaml
+  template:
+    metadata:
+      name: auth0-idp
+    spec:
+      project: default
+      source:
+        repoURL: '{{ .repoURL }}'
+        targetRevision: '{{ .targetRevision }}'
+        path: charts/auth0-idp
+        helm:
+          valueFiles:
+            - values.yaml
+            - 'values-{{ .env }}.yaml'
+          values: |
+            externalSecretsNamespace: {{ .externalSecretsNamespace }}
+            secretStore:
+              name: {{ .secretStoreName }}
+            auth0:
+              idpName: {{ .auth0IdpName }}
+              issuer: {{ .auth0Issuer }}
+              clientId: {{ .auth0ClientId }}
+              remoteSecretKey: {{ .auth0RemoteSecretKey }}
+      destination:
+        server: '{{ .server }}'
+        namespace: openshift-config
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+  selector:
+    matchExpressions:
+      - key: enabled
+        operator: In
+        values:
+          - "true"

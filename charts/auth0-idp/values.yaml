@@ -1,0 +1,24 @@
+externalSecretsNamespace: external-secrets
+externalSecretsConfigNamespace: external-secrets-config
+openshiftConfigNamespace: openshift-config
+
+aws:
+  region: us-east-1
+  credentialsSecretName: aws-secretsmanager-creds
+
+secretStore:
+  name: aws-secretsmanager
+
+auth0:
+  externalSecretName: auth0-client-secret
+  remoteSecretKey: auth0/openshift
+  remoteProperty: clientSecret
+  clientId: "REPLACE_ME"
+  issuer: "https://YOUR_AUTH0_DOMAIN/"
+  idpName: auth0
+
+oauth:
+  preferredUsernameClaim: email
+  nameClaim: name
+  emailClaim: email
+  groupsClaim: groups

@@ -1,0 +1,8 @@
+apiVersion: externalsecrets.operator.openshift.io/v1alpha1
+kind: ExternalSecretsOperator
+metadata:
+  name: {{ .Values.operatorConfig.name }}
+  namespace: {{ .Values.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec: {}

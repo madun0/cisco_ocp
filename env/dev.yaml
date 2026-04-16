@@ -1,0 +1,10 @@
+env: dev
+enabled: "true"
+externalSecretsNamespace: external-secrets
+secretStoreName: aws-secretsmanager
+awsCredentialsSecretName: aws-secretsmanager-creds
+auth0IdpName: auth0
+auth0Issuer: https://dev-example.us.auth0.com/
+auth0ClientId: DEV_AUTH0_CLIENT_ID
+auth0RemoteSecretKey: auth0/openshift
+server:https://kubernetes.default.svc

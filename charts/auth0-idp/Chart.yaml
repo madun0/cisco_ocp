@@ -1,0 +1,6 @@
+apiVersion: v2
+name: auth0-idp
+description: Configure Auth0 IdP on OpenShift using External Secrets and AWS Secrets Manager
+type: application
+version: 0.1.0
+appVersion: "1.0"
