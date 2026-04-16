@@ -14,7 +14,7 @@ apps:
   externalSecretsOperator:
     name: external-secrets-operator
     chartPath: charts/external-secrets
-    destinationNamespace: external-secrets
+    destinationNamespace: external-secrets-operator
     wave: "1"
 
   auth0Idp:
