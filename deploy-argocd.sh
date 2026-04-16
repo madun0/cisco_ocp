@@ -212,6 +212,10 @@ spec:
     repoURL: ${BOOTSTRAP_REPO_URL}
     targetRevision: ${BOOTSTRAP_REPO_BRANCH}
     path: ${BOOTSTRAP_REPO_PATH}
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-dev.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: ${BOOTSTRAP_DEST_NAMESPACE}

@@ -25,7 +25,7 @@ spec:
         helm:
           valueFiles:
             - values.yaml
-            - values-{{`{{ .env }}`}}.yaml
+            - values-{{`{{ .environment }}`}}.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: {{ .Values.apps.auth0Idp.destinationNamespace | quote }}
