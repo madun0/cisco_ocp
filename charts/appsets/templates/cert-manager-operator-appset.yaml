@@ -3,6 +3,8 @@ kind: ApplicationSet
 metadata:
   name: {{ .Values.apps.certManagerOperator.name }}
   namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   goTemplate: true
   goTemplateOptions:
@@ -25,7 +27,7 @@ spec:
         helm:
           valueFiles:
             - values.yaml
-            - values-{{`{{ .env }}`}}.yaml
+            - values-{{ .Values.environment }}.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: {{ .Values.apps.certManagerOperator.namespace | quote }}

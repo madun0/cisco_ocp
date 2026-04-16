@@ -16,6 +16,8 @@ spec:
   template:
     metadata:
       name: {{ .Values.apps.auth0Idp.name }}
+      annotations:
+        argocd.argoproj.io/sync-wave: {{ .Values.apps.auth0Idp.wave | quote }}
     spec:
       project: default
       source:
@@ -33,3 +35,5 @@ spec:
         automated:
           prune: true
           selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
