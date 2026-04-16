@@ -13,7 +13,7 @@ apps:
 
   externalSecretsOperator:
     name: external-secrets-operator
-    chartPath: charts/external-secrets-operator
+    chartPath: charts/external-secrets
     destinationNamespace: external-secrets
     wave: "1"
 
