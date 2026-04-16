@@ -1,4 +1,4 @@
-namespace: external-secrets
+namespace: external-secrets-operator
 
 subscription:
   name: external-secrets-operator
@@ -9,4 +9,4 @@ subscription:
 operatorConfig:
   name: cluster
 
-awsAccountId: 125980734123
+awsAccountId: "125980734123"
