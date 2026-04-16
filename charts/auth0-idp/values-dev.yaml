@@ -4,5 +4,5 @@ aws:
   credentialsSecretName: aws-secretsmanager-creds
 
 auth0:
-  clientId: "DEV_AUTH0_CLIENT_ID"
-  issuer: "https://dev-example.us.auth0.com/"
+  clientId: "0hjX33cYmKOtHzxZ6ARpYSA0MfVRzWR4"
+  issuer: "https://dev-drwe4kbftn75u72h.us.auth0.com"

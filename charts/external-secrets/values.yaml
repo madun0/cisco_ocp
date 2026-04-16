@@ -9,4 +9,4 @@ subscription:
 operatorConfig:
   name: cluster
 
-awsAccountId: REPLACE_ME
+awsAccountId: 125980734123

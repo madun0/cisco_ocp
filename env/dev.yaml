@@ -4,7 +4,7 @@ externalSecretsNamespace: external-secrets
 secretStoreName: aws-secretsmanager
 awsCredentialsSecretName: aws-secretsmanager-creds
 auth0IdpName: auth0
-auth0Issuer: https://dev-example.us.auth0.com/
-auth0ClientId: DEV_AUTH0_CLIENT_ID
+auth0Issuer: https://dev-drwe4kbftn75u72h.us.auth0.com
+auth0ClientId: 0hjX33cYmKOtHzxZ6ARpYSA0MfVRzWR4
 auth0RemoteSecretKey: auth0/openshift
-server:https://kubernetes.default.svc
+server: https://kubernetes.default.svc

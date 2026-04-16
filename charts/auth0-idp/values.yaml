@@ -13,8 +13,8 @@ auth0:
   externalSecretName: auth0-client-secret
   remoteSecretKey: auth0/openshift
   remoteProperty: clientSecret
-  clientId: "REPLACE_ME"
-  issuer: "https://YOUR_AUTH0_DOMAIN/"
+  clientId: "0hjX33cYmKOtHzxZ6ARpYSA0MfVRzWR4"
+  issuer: "https://dev-drwe4kbftn75u72h.us.auth0.com"
   idpName: auth0
 
 oauth:

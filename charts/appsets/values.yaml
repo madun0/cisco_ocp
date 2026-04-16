@@ -1,0 +1,15 @@
+repo:
+  url: https://github.com/madun0/cisco_ocp.git
+  revision: main
+
+environment: dev
+
+apps:
+  externalSecretsOperator:
+    name: external-secrets-operator
+    chartPath: charts/external-secrets
+    destinationNamespace: external-secrets
+  auth0Idp:
+    name: auth0-idp
+    chartPath: charts/auth0-idp
+    destinationNamespace: openshift-config

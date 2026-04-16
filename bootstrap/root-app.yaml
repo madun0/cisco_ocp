@@ -8,7 +8,11 @@ spec:
   source:
     repoURL: https://github.com/madun0/cisco_ocp.git
     targetRevision: main
-    path: apps
+    path: charts/appsets
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-dev.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: openshift-gitops
