@@ -1,10 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: {{ .Values.apps.auth0Idp.name }}
+  name: {{ .Values.apps.certManagerOperator.name }}
   namespace: openshift-gitops
-  annotations:
-    argocd.argoproj.io/sync-wave: "2"
 spec:
   goTemplate: true
   goTemplateOptions:
@@ -15,21 +13,25 @@ spec:
           - env: {{ .Values.environment | quote }}
   template:
     metadata:
-      name: {{ .Values.apps.auth0Idp.name }}
+      name: {{ .Values.apps.certManagerOperator.name }}
+      annotations:
+        argocd.argoproj.io/sync-wave: {{ .Values.apps.certManagerOperator.wave | quote }}
     spec:
       project: default
       source:
         repoURL: {{ .Values.repo.url | quote }}
         targetRevision: {{ .Values.repo.revision | quote }}
-        path: {{ .Values.apps.auth0Idp.chartPath | quote }}
+        path: {{ .Values.apps.certManagerOperator.chartPath | quote }}
         helm:
           valueFiles:
             - values.yaml
-            - values-{{ .Values.environment }}.yaml
+            - values-{{`{{ .env }}`}}.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: {{ .Values.apps.auth0Idp.destinationNamespace | quote }}
+        namespace: {{ .Values.apps.certManagerOperator.namespace | quote }}
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
+        syncOptions:
+          - CreateNamespace=true

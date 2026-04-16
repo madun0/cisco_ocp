@@ -1,0 +1,8 @@
+apiVersion: operator.openshift.io/v1alpha1
+kind: CertManager
+metadata:
+  name: {{ .Values.certManager.name }}
+  namespace: {{ .Values.operandNamespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec: {}

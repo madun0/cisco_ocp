@@ -1,0 +1,16 @@
+operatorNamespace: cert-manager-operator
+operandNamespace: cert-manager
+
+subscription:
+  name: cert-manager-operator
+  packageName: openshift-cert-manager-operator
+  channel: stable-v1
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  installPlanApproval: Automatic
+
+operatorGroup:
+  name: cert-manager-operator
+
+certManager:
+  name: cluster
