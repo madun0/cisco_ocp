@@ -1,6 +1,6 @@
 apiVersion: v2
-name: external-secrets-operator
-description: Install External Secrets Operator on OpenShift
+name: external-secrets
+description: Install External Secrets Operator for Red Hat OpenShift
 type: application
 version: 0.1.0
-appVersion: "stable"
+appVersion: "stable-v1"

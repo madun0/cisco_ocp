@@ -1,12 +1,24 @@
-namespace: external-secrets-operator
+operatorNamespace: external-secrets-operator
+operandNamespace: external-secrets
+
+operatorGroup:
+  name: openshift-external-secrets-operator
+  targetNamespaces: []
 
 subscription:
-  name: external-secrets-operator
-  channel: stable
+  name: openshift-external-secrets-operator
+  packageName: openshift-external-secrets-operator
+  channel: stable-v1
   source: redhat-operators
   sourceNamespace: openshift-marketplace
+  installPlanApproval: Automatic
 
-operatorConfig:
+externalSecretsConfig:
   name: cluster
-
-awsAccountId: "125980734123"
+  controllerConfig:
+    create: true
+    networkPolicies:
+      - componentName: ExternalSecretsCoreController
+        name: allow-external-secrets-egress
+        egress:
+          - {}
