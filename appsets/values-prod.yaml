@@ -1,5 +1,0 @@
-environment: prod
-
-repo:
-  url: https://github.com/madun0/cisco_ocp.git
-  revision: main
