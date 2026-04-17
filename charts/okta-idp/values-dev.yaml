@@ -1,0 +1,8 @@
+externalSecretsConfigNamespace: external-secrets-config
+
+aws:
+  credentialsSecretName: aws-secretsmanager-creds
+
+auth0:
+  clientId: "0oa1229r835xqseVx698"
+  issuer: "https://trial-3361647.okta.com/oauth2/default"

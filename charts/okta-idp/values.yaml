@@ -1,0 +1,24 @@
+externalSecretsNamespace: external-secrets
+externalSecretsConfigNamespace: external-secrets-config
+openshiftConfigNamespace: openshift-config
+
+aws:
+  region: us-east-1
+  credentialsSecretName: aws-secretsmanager-creds
+
+secretStore:
+  name: aws-secretsmanager
+
+auth0:
+  externalSecretName: auth0-client-secret
+  remoteSecretKey: okta/openshift
+  remoteProperty: clientSecret
+  clientId: "0oa1229r835xqseVx698"
+  issuer: "https://trial-3361647.okta.com/oauth2/default"
+  idpName: okta
+
+oauth:
+  preferredUsernameClaim: email
+  nameClaim: name
+  emailClaim: email
+  groupsClaim: groups
