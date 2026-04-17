@@ -1,2 +1,2 @@
-repoURL: https://github.com/madun0/cisco_ocp.git
+repoURL: git@github.com:madun0/cisco_ocp.git
 targetRevision: main
