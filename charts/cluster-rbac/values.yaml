@@ -1,0 +1,14 @@
+clusterRoleBindings:
+  - name: ocp-cluster-admins
+    group: ocp-cluster-admins
+    clusterRole: cluster-admin
+
+  - name: ocp-platform-admins
+    group: ocp-platform-admins
+    clusterRole: admin
+
+namespaceRoleBindings:
+  - name: developers-edit
+    namespace: my-app-dev
+    group: ocp-developers
+    role: edit

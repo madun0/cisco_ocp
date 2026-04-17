@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-rbac-cm
+  namespace: openshift-gitops
+data:
+  policy.default: {{ .Values.defaultPolicy | quote }}
+  policy.matchMode: {{ .Values.matchMode | quote }}
+  policy.csv: |
+{{ .Values.policyCsv | indent 4 }}
