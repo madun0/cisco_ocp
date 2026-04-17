@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: auth0-idp
+  name: okta-idp
   namespace: openshift-gitops
   annotations:
     argocd.argoproj.io/sync-wave: "3"
