@@ -22,3 +22,5 @@ externalSecretsConfig:
         name: allow-external-secrets-egress
         egress:
           - {}
+
+awsAccountId: "125980734123"
