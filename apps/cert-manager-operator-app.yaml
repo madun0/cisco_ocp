@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/madun0/cisco_ocp.git
     targetRevision: main
-    path: charts/cert-manager-operator
+    path: charts/cert-manager
     helm:
       valueFiles:
         - values.yaml
