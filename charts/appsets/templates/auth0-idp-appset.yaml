@@ -5,6 +5,7 @@ metadata:
   namespace: openshift-gitops
   annotations:
     argocd.argoproj.io/sync-wave: {{ .Values.apps.auth0Idp.wave | quote }}
+    argocd.argoproj.io/sync-options: SkipWait=true
 spec:
   goTemplate: true
   goTemplateOptions:
