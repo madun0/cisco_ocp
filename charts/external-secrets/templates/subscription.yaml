@@ -11,3 +11,4 @@ spec:
   name: {{ .Values.subscription.packageName }}
   source: {{ .Values.subscription.source }}
   sourceNamespace: {{ .Values.subscription.sourceNamespace }}
+  startingCSV: {{ .Values.subscription.startingCSV }}

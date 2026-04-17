@@ -12,15 +12,6 @@ subscription:
   source: redhat-operators
   sourceNamespace: openshift-marketplace
   installPlanApproval: Automatic
-
-externalSecretsConfig:
-  name: cluster
-  controllerConfig:
-    create: true
-    networkPolicies:
-      - componentName: ExternalSecretsCoreController
-        name: allow-external-secrets-egress
-        egress:
-          - {}
+  startingCSV: external-secrets-operator.v1.0.0
 
 awsAccountId: "125980734123"

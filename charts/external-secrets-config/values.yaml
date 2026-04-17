@@ -1,0 +1,14 @@
+operatorNamespace: external-secrets-operator
+operandNamespace: external-secrets
+
+externalSecretsConfig:
+  name: cluster
+  controllerConfig:
+    create: true
+    networkPolicies:
+      - componentName: ExternalSecretsCoreController
+        name: allow-external-secrets-egress
+        egress:
+          - {}
+
+awsAccountId: "125980734123"
