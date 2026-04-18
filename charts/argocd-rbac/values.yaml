@@ -1,23 +1,26 @@
-defaultPolicy: role:readonly
-matchMode: glob
+argocd:
+  name: openshift-gitops
+  namespace: openshift-gitops
 
-policyCsv: |
-  p, role:argocd-admin, applications, *, */*, allow
-  p, role:argocd-admin, projects, *, *, allow
-  p, role:argocd-admin, clusters, get, *, allow
-  p, role:argocd-admin, repositories, *, *, allow
-  p, role:argocd-admin, logs, get, */*, allow
-  p, role:argocd-admin, exec, create, */*, allow
+rbac:
+  defaultPolicy: role:readonly
+  scopes: "[groups]"
+  policy: |
+    p, role:argocd-admin, applications, *, */*, allow
+    p, role:argocd-admin, projects, *, *, allow
+    p, role:argocd-admin, repositories, *, *, allow
+    p, role:argocd-admin, logs, get, */*, allow
+    p, role:argocd-admin, exec, create, */*, allow
 
-  p, role:argocd-readonly, applications, get, */*, allow
-  p, role:argocd-readonly, projects, get, *, allow
-  p, role:argocd-readonly, logs, get, */*, allow
+    p, role:argocd-readonly, applications, get, */*, allow
+    p, role:argocd-readonly, projects, get, *, allow
+    p, role:argocd-readonly, logs, get, */*, allow
 
-  p, role:argocd-syncer, applications, get, */*, allow
-  p, role:argocd-syncer, applications, sync, */*, allow
-  p, role:argocd-syncer, applications, action/*, */*, allow
-  p, role:argocd-syncer, logs, get, */*, allow
+    p, role:argocd-syncer, applications, get, */*, allow
+    p, role:argocd-syncer, applications, sync, */*, allow
+    p, role:argocd-syncer, applications, action/*, */*, allow
+    p, role:argocd-syncer, logs, get, */*, allow
 
-  g, argocd-admins, role:argocd-admin
-  g, argocd-readonly, role:argocd-readonly
-  g, argocd-syncers, role:argocd-syncer
+    g, argocd-admins, role:argocd-admin
+    g, argocd-readonly, role:argocd-readonly
+    g, argocd-syncers, role:argocd-syncer
