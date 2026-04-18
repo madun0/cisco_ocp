@@ -14,9 +14,13 @@ spec:
         clientSecret:
           name: {{ .Values.auth0.externalSecretName }}
         issuer: {{ .Values.auth0.issuer | quote }}
+        extraScopes:
+          - email
+          - profile
         claims:
           preferredUsername:
             - {{ .Values.oauth.preferredUsernameClaim }}
+            - {{ .Values.oauth.emailClaim }}
           name:
             - {{ .Values.oauth.nameClaim }}
           email:
