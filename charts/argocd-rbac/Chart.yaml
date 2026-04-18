@@ -1,6 +1,6 @@
 apiVersion: v2
 name: argocd-rbac
-description: Argo CD RBAC for Auth0-backed OpenShift groups
+description: Argo CD RBAC for idp-backed OpenShift groups
 type: application
 version: 0.1.0
 appVersion: "1.0"

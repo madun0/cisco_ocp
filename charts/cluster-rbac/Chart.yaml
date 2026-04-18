@@ -1,6 +1,6 @@
 apiVersion: v2
 name: cluster-rbac
-description: OpenShift cluster RBAC bindings for Auth0-backed groups
+description: OpenShift cluster RBAC bindings for idp-backed groups
 type: application
 version: 0.1.0
 appVersion: "1.0"
