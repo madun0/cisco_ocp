@@ -21,6 +21,6 @@ rbac:
     p, role:argocd-syncer, applications, action/*, */*, allow
     p, role:argocd-syncer, logs, get, */*, allow
 
-    g, argocd-admins, role:argocd-admin
-    g, argocd-readonly, role:argocd-readonly
-    g, argocd-syncers, role:argocd-syncer
+    g, ocp-argocd-admins, role:argocd-admin
+    g, ocp-argocd-readonly, role:argocd-readonly
+    g, ocp-argocd-syncers, role:argocd-syncer
