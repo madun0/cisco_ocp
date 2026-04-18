@@ -6,14 +6,14 @@ metadata:
     argocd.argoproj.io/sync-wave: "3"
 spec:
   identityProviders:
-    - name: {{ .Values.auth0.idpName }}
+    - name: {{ .Values.okta.idpName }}
       mappingMethod: claim
       type: OpenID
       openID:
-        clientID: {{ .Values.auth0.clientId | quote }}
+        clientID: {{ .Values.okta.clientId | quote }}
         clientSecret:
-          name: {{ .Values.auth0.externalSecretName }}
-        issuer: {{ .Values.auth0.issuer | quote }}
+          name: {{ .Values.okta.externalSecretName }}
+        issuer: {{ .Values.okta.issuer | quote }}
         extraScopes:
           - email
           - profile

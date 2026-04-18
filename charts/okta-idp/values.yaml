@@ -9,8 +9,8 @@ aws:
 secretStore:
   name: aws-secretsmanager
 
-auth0:
-  externalSecretName: auth0-client-secret
+okta:
+  externalSecretName: okta-client-secret
   remoteSecretKey: okta/openshift
   remoteProperty: clientSecret
   clientId: "0oa1229r835xqseVx698"
