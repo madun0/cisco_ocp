@@ -1,0 +1,19 @@
+{{- if .Values.userWorkloadMonitoring.enabled }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-workload-monitoring-config
+  namespace: {{ .Values.userWorkloadMonitoring.namespace }}
+data:
+  config.yaml: |
+    prometheus:
+      retention: {{ .Values.userWorkloadMonitoring.retention }}
+      volumeClaimTemplate:
+        spec:
+          resources:
+            requests:
+              storage: {{ .Values.userWorkloadMonitoring.storageSize }}
+{{- if .Values.userWorkloadMonitoring.storageClassName }}
+          storageClassName: {{ .Values.userWorkloadMonitoring.storageClassName }}
+{{- end }}
+{{- end }}

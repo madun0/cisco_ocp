@@ -1,0 +1,8 @@
+clusterMonitoring:
+  retention: 15d
+  storageSize: 80Gi
+
+userWorkloadMonitoring:
+  enabled: true
+  retention: 15d
+  storageSize: 80Gi

@@ -1,0 +1,12 @@
+clusterMonitoring:
+  namespace: openshift-monitoring
+  retention: 15d
+  storageClassName: ""
+  storageSize: 40Gi
+
+userWorkloadMonitoring:
+  enabled: true
+  namespace: openshift-user-workload-monitoring
+  retention: 15d
+  storageClassName: ""
+  storageSize: 40Gi

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: openshift-monitoring-config
+description: Configure built-in OpenShift monitoring and user workload monitoring
+type: application
+version: 0.1.0
+appVersion: "1.0"
