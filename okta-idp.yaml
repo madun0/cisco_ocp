@@ -1,0 +1,76 @@
+---
+# Source: auth0-idp/templates/clustersecretstore.yaml
+apiVersion: external-secrets.io/v1
+kind: ClusterSecretStore
+metadata:
+  name: aws-secretsmanager
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  provider:
+    aws:
+      service: SecretsManager
+      region: us-east-1
+      auth:
+        secretRef:
+          accessKeyIDSecretRef:
+            name: aws-secretsmanager-creds
+            namespace: external-secrets-config
+            key: access-key-id
+          secretAccessKeySecretRef:
+            name: aws-secretsmanager-creds
+            namespace: external-secrets-config
+            key: secret-access-key
+---
+# Source: auth0-idp/templates/externalsecret-auth0-client-secret.yaml
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: auth0-client-secret
+  namespace: openshift-config
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  refreshInterval: 1h
+  secretStoreRef:
+    name: aws-secretsmanager
+    kind: ClusterSecretStore
+  target:
+    name: auth0-client-secret
+    creationPolicy: Owner
+    template:
+      type: Opaque
+      data:
+        clientSecret: "{{ .clientSecret }}"
+  data:
+    - secretKey: clientSecret
+      remoteRef:
+        key: okta/openshift
+        property: clientSecret
+---
+# Source: auth0-idp/templates/oauth-cluster.yaml
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
+spec:
+  identityProviders:
+    - name: okta
+      mappingMethod: claim
+      type: OpenID
+      openID:
+        clientID: "0oa1229r835xqseVx698"
+        clientSecret:
+          name: auth0-client-secret
+        issuer: "https://trial-3361647.okta.com/oauth2/default"
+        claims:
+          preferredUsername:
+            - email
+          name:
+            - name
+          email:
+            - email
+          groups:
+            - groups
