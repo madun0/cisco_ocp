@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kiali-instance
+  namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "7"
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:madun0/cisco_ocp.git
+    targetRevision: main
+    path: charts/kiali-instance
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-dev.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: istio-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - SkipDryRunOnMissingResource=true

@@ -1,0 +1,24 @@
+apiVersion: kiali.io/v1alpha1
+kind: Kiali
+metadata:
+  name: {{ .Values.kiali.name }}
+  namespace: {{ .Values.kiali.namespace }}
+spec:
+  version: {{ .Values.kiali.version }}
+  istio_namespace: {{ .Values.kiali.istioNamespace }}
+  auth:
+    strategy: {{ .Values.kiali.auth.strategy }}
+  deployment:
+    logger:
+      log_level: {{ .Values.kiali.deployment.logger.log_level }}
+    view_only_mode: {{ .Values.kiali.deployment.view_only_mode }}
+  external_services:
+    grafana:
+      enabled: {{ .Values.kiali.external_services.grafana.enabled }}
+    prometheus:
+      auth:
+        type: {{ .Values.kiali.external_services.prometheus.auth.type }}
+        use_kiali_token: {{ .Values.kiali.external_services.prometheus.auth.use_kiali_token }}
+      thanos_proxy:
+        enabled: {{ .Values.kiali.external_services.prometheus.thanos_proxy.enabled }}
+      url: {{ .Values.kiali.external_services.prometheus.url | quote }}

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: kiali-instance
+description: Deploy a Kiali instance for OpenShift Service Mesh 3
+type: application
+version: 0.1.0
+appVersion: "default"

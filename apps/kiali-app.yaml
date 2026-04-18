@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kiali-operator
+  namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "6"
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:madun0/cisco_ocp.git
+    targetRevision: main
+    path: charts/kiali
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-dev.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: openshift-operators
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
