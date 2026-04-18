@@ -1,0 +1,6 @@
+monitoringStack:
+  prometheus:
+    replicas: 2
+    retention: 15d
+    storage:
+      size: 100Gi

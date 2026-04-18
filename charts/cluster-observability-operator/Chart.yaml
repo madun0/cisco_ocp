@@ -1,0 +1,6 @@
+apiVersion: v2
+name: cluster-observability-operator
+description: Install Red Hat OpenShift Cluster Observability Operator
+type: application
+version: 0.1.0
+appVersion: "stable"

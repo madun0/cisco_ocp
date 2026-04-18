@@ -1,0 +1,13 @@
+namespace: openshift-cluster-observability-operator
+
+operatorGroup:
+  name: openshift-cluster-observability-operator
+  targetNamespaces: []
+
+subscription:
+  name: cluster-observability-operator
+  packageName: cluster-observability-operator
+  channel: stable
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  installPlanApproval: Automatic

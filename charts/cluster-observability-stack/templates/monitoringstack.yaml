@@ -1,0 +1,22 @@
+apiVersion: observability.openshift.io/v1alpha1
+kind: MonitoringStack
+metadata:
+  name: {{ .Values.monitoringStack.name }}
+  namespace: {{ .Values.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  prometheusConfig:
+    replicas: {{ .Values.monitoringStack.prometheus.replicas }}
+    retention: {{ .Values.monitoringStack.prometheus.retention | quote }}
+    storage:
+      volumeClaimTemplate:
+        spec:
+          resources:
+            requests:
+              storage: {{ .Values.monitoringStack.prometheus.storage.size }}
+{{- if .Values.monitoringStack.prometheus.storage.storageClassName }}
+          storageClassName: {{ .Values.monitoringStack.prometheus.storage.storageClassName }}
+{{- end }}
+  resourceSelector:
+{{- toYaml .Values.monitoringStack.resourceSelector | nindent 4 }}
