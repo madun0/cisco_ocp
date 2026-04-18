@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: git@github.com:madun0/cisco_ocp.git
     targetRevision: main
-    path: charts/service-mesh-control-plane
+    path: charts/service-mesh-3-control-plane
     helm:
       valueFiles:
         - values.yaml
