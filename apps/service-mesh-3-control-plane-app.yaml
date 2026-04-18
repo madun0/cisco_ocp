@@ -25,9 +25,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - SkipDryRunOnMissingResource=true
-  ignoreDifferences:
-    - group: sailoperator.io
-      kind: Istio
-      jsonPointers:
-        - /spec
-        - /status
