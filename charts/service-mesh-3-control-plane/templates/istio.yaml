@@ -9,3 +9,8 @@ spec:
   version: {{ .Values.istio.version }}
   updateStrategy:
     type: {{ .Values.istio.updateStrategy.type }}
+  addons:
+    kiali:
+      enabled: true
+      ingress:
+        enabled: true
