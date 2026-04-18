@@ -18,7 +18,7 @@ auth0:
   idpName: okta
 
 oauth:
-  preferredUsernameClaim: email
+  preferredUsernameClaim: preferred_username
   nameClaim: name
   emailClaim: email
   groupsClaim: groups

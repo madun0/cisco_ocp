@@ -17,6 +17,7 @@ spec:
         claims:
           preferredUsername:
             - {{ .Values.oauth.preferredUsernameClaim }}
+            - {{ .Values.oauth.emailClaim }}
           name:
             - {{ .Values.oauth.nameClaim }}
           email:
