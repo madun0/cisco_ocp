@@ -1,0 +1,11 @@
+istioNamespace: istio-system
+istioCniNamespace: istio-cni
+
+istio:
+  name: default
+  version: v1.24-latest
+  updateStrategy:
+    type: InPlace
+
+istioCni:
+  name: default

@@ -1,0 +1,11 @@
+apiVersion: sailoperator.io/v1
+kind: Istio
+metadata:
+  name: {{ .Values.istio.name }}
+  namespace: {{ .Values.istioNamespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  version: {{ .Values.istio.version }}
+  updateStrategy:
+    type: {{ .Values.istio.updateStrategy.type }}

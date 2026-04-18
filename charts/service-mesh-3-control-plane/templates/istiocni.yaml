@@ -1,0 +1,8 @@
+apiVersion: sailoperator.io/v1
+kind: IstioCNI
+metadata:
+  name: {{ .Values.istioCni.name }}
+  namespace: {{ .Values.istioCniNamespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec: {}

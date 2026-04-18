@@ -1,0 +1,6 @@
+apiVersion: v2
+name: service-mesh-operator
+description: Install Red Hat OpenShift Service Mesh 3 Operator
+type: application
+version: 0.1.0
+appVersion: "3.0"

@@ -1,0 +1,14 @@
+subscription:
+  name: servicemeshoperator3
+  packageName: servicemeshoperator3
+  namespace: openshift-operators
+  channel: stable-3.0
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  installPlanApproval: Automatic
+
+operatorGroup:
+  create: false
+  name: openshift-operators
+  namespace: openshift-operators
+  targetNamespaces: []

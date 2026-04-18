@@ -1,0 +1,6 @@
+apiVersion: v2
+name: service-mesh-control-plane
+description: Deploy Red Hat OpenShift Service Mesh 3 control plane
+type: application
+version: 0.1.0
+appVersion: "3.0"
