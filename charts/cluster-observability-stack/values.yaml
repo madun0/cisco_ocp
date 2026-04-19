@@ -7,5 +7,9 @@ observabilityInstaller:
     storage:
       size: 50Gi
       storageClassName: ""
+      s3BucketName: bucket-name
+      s3RoleARN: arn:aws:iam::<acct>:role/<role>
+      s3Region: us-east-1
+
   logging:
     enabled: false

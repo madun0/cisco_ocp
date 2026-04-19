@@ -11,6 +11,11 @@ spec:
       enabled: {{ .Values.observabilityInstaller.tracing.enabled }}
 {{- if .Values.observabilityInstaller.tracing.enabled }}
       storage:
+        objectStorage:
+          s3STS:
+            bucket: {{ .Values.observabilityInstaller.tracing.storage.s3BucketName | quote }}
+            roleARN: {{ .Values.observabilityInstaller.tracing.storage.s3RoleARN | quote }}
+            region: {{ .Values.observabilityInstaller.tracing.storage.s3Region | quote }}
         size: {{ .Values.observabilityInstaller.tracing.storage.size | quote }}
 {{- if .Values.observabilityInstaller.tracing.storage.storageClassName }}
         storageClassName: {{ .Values.observabilityInstaller.tracing.storage.storageClassName | quote }}
