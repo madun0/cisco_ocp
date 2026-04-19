@@ -8,7 +8,7 @@ observabilityInstaller:
       size: 50Gi
       storageClassName: ""
       s3BucketName: ocp-cluster-observability
-      s3RoleARN: arn:aws:iam::<acct>:role/<role>
+      s3RoleARN: arn:aws:iam::125980734123:role/AWSServiceForClusterObservability
       s3Region: us-east-1
 
   logging:
