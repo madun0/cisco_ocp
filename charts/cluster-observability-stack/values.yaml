@@ -3,7 +3,7 @@ namespace: observability
 observabilityInstaller:
   name: cluster-observability
   tracing:
-    enabled: true
+    enabled: false
     storage:
       size: 50Gi
       storageClassName: ""
