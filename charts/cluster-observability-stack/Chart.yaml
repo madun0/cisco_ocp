@@ -1,6 +1,6 @@
 apiVersion: v2
 name: cluster-observability-stack
-description: Deploy a MonitoringStack with Cluster Observability Operator
+description: Deploy COO end-to-end observability with ObservabilityInstaller
 type: application
 version: 0.1.0
 appVersion: "1.0"

@@ -1,6 +1,5 @@
-monitoringStack:
-  prometheus:
-    replicas: 1
-    retention: 3d
-    storage:
-      size: 20Gi
+observabilityInstaller:
+  tracing:
+    enabled: true
+  logging:
+    enabled: false

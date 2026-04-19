@@ -1,12 +1,8 @@
 namespace: observability
 
-monitoringStack:
-  name: monitoring
-  prometheus:
-    replicas: 2
-    retention: 7d
-    storage:
-      size: 50Gi
-      storageClassName: ""
-  resourceSelector:
-    matchLabels: {}
+observabilityInstaller:
+  name: cluster-observability
+  tracing:
+    enabled: true
+  logging:
+    enabled: false
