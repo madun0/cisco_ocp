@@ -9,5 +9,12 @@ spec:
   capabilities:
     tracing:
       enabled: {{ .Values.observabilityInstaller.tracing.enabled }}
+{{- if .Values.observabilityInstaller.tracing.enabled }}
+      storage:
+        size: {{ .Values.observabilityInstaller.tracing.storage.size | quote }}
+{{- if .Values.observabilityInstaller.tracing.storage.storageClassName }}
+        storageClassName: {{ .Values.observabilityInstaller.tracing.storage.storageClassName | quote }}
+{{- end }}
+{{- end }}
     logging:
       enabled: {{ .Values.observabilityInstaller.logging.enabled }}

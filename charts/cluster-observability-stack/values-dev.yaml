@@ -1,5 +1,8 @@
 observabilityInstaller:
   tracing:
     enabled: true
+    storage:
+      size: 20Gi
+      storageClassName: ""
   logging:
     enabled: false
