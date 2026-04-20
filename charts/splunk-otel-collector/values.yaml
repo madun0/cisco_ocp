@@ -19,7 +19,7 @@ splunkPlatform:
   logsEnabled: true
   metricsEnabled: false
   tracesEnabled: false
-  insecureSkipVerify: false
+  insecureSkipVerify: true
 
 #logsEnabled: true
 #metricsEnabled: true
