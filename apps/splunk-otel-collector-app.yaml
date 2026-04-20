@@ -13,8 +13,8 @@ spec:
       targetRevision: 0.145.0
       helm:
         valueFiles:
-          - $values/helm-charts/splunk-otel-collector/values.yaml
-          - $values/helm-charts/splunk-otel-collector/values-dev.yaml
+          - $values/charts/splunk-otel-collector/values.yaml
+          - $values/charts/splunk-otel-collector/values-dev.yaml
     - repoURL: git@github.com:madun0/cisco_ocp.git
       targetRevision: main
       ref: values
