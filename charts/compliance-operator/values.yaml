@@ -1,0 +1,16 @@
+namespace:
+  name: openshift-compliance
+  clusterMonitoringLabel: "true"
+
+operatorGroup:
+  name: compliance-operator
+  targetNamespaces:
+    - openshift-compliance
+
+subscription:
+  name: compliance-operator
+  packageName: compliance-operator
+  channel: stable
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  installPlanApproval: Automatic
