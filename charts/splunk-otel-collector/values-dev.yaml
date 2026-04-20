@@ -4,7 +4,7 @@ splunkObservability:
   realm: us1
 
 splunkPlatform:
-  endpoint: https://prd-p-6c0ti.splunkcloud.com:8088/services/collector
+  endpoint: https://prd-p-6c0ti.splunkcloud.com/services/collector
   index: main
   metricsIndex: metrics
   tracesIndex: traces

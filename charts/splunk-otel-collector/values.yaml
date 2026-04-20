@@ -11,7 +11,7 @@ splunkObservability:
   accessToken: ""
 
 splunkPlatform:
-  endpoint: https://prd-p-6c0ti.splunkcloud.com:8088/services/collector
+  endpoint: https://prd-p-6c0ti.splunkcloud.com/services/collector
   token: ""
   index: main
   metricsIndex: metrics
