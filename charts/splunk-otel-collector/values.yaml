@@ -6,12 +6,6 @@ secret:
   create: false
   name: splunk-otel-collector-secret
 
-splunkObservability:
-  realm: ""
-  accessToken: ""
-  metricsEnabled: false
-  tracesEnabled: false
-
 splunkPlatform:
   endpoint: https://prd-p-6c0ti.splunkcloud.com/services/collector
   token: ""
