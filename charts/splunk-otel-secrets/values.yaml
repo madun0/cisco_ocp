@@ -1,0 +1,14 @@
+namespace: splunk-otel
+
+externalSecret:
+  name: splunk-otel-collector-secret
+  refreshInterval: 1h
+  secretStoreRef:
+    name: aws-secretsmanager
+    kind: ClusterSecretStore
+  targetSecretName: splunk-otel-collector-secret
+  remoteRef:
+    key: splunk/otel
+    properties:
+      splunkObservabilityAccessToken: splunkObservabilityAccessToken
+      splunkPlatformToken: splunkPlatformToken

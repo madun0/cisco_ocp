@@ -1,0 +1,41 @@
+clusterName: ocp-aws-acm-ocp1
+cloudProvider: aws
+distribution: openshift
+
+secret:
+  create: false
+  name: splunk-otel-collector-secret
+
+splunkObservability:
+  realm: us1
+  accessToken: ""
+
+splunkPlatform:
+  endpoint: https://prd-p-6c0ti.splunkcloud.com:8088/services/collector
+  token: ""
+  index: main
+  metricsIndex: metrics
+  tracesIndex: traces
+  logsEnabled: true
+  metricsEnabled: false
+  tracesEnabled: false
+  insecureSkipVerify: false
+
+#logsEnabled: true
+#metricsEnabled: true
+#tracesEnabled: true
+
+gateway:
+  enabled: false
+
+clusterReceiver:
+  enabled: true
+
+operator:
+  enabled: false
+
+operatorcrds:
+  install: false
+
+instrumentation:
+  enabled: false

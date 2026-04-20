@@ -1,0 +1,34 @@
+namespace: openshift-logging
+
+externalSecret:
+  name: vector-splunk-secret
+  refreshInterval: 1h
+  secretStoreRef:
+    name: aws-secretsmanager
+    kind: ClusterSecretStore
+  targetSecretName: vector-splunk-secret
+  remoteRef:
+    key: splunk/hec
+    property: hecToken
+
+clusterLogForwarder:
+  name: collector
+  serviceAccount:
+    name: collector
+
+  output:
+    name: splunk-hec
+    type: splunk
+    url: "https://splunk.example.com:8088"
+    secretName: vector-splunk-secret
+    tls:
+      insecureSkipVerify: false
+
+  pipelines:
+    - name: all-to-splunk
+      inputRefs:
+        - application
+        - infrastructure
+        - audit
+      outputRefs:
+        - splunk-hec

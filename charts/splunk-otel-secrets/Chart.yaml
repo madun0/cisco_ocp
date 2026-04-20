@@ -1,0 +1,6 @@
+apiVersion: v2
+name: splunk-otel-secrets
+description: Create namespace and ExternalSecret for Splunk OTel Collector
+type: application
+version: 0.1.0
+appVersion: "1.0"

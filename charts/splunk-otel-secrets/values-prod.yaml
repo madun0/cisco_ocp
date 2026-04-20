@@ -1,0 +1,6 @@
+externalSecret:
+  remoteRef:
+    key: splunk/otel
+    properties:
+      splunkObservabilityAccessToken: splunkObservabilityAccessToken
+      splunkPlatformToken: splunkPlatformToken

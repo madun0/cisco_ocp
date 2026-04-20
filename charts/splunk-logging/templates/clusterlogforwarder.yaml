@@ -1,0 +1,28 @@
+apiVersion: observability.openshift.io/v1
+kind: ClusterLogForwarder
+metadata:
+  name: {{ .Values.clusterLogForwarder.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  serviceAccount:
+    name: {{ .Values.clusterLogForwarder.serviceAccount.name }}
+  outputs:
+    - name: {{ .Values.clusterLogForwarder.output.name }}
+      type: {{ .Values.clusterLogForwarder.output.type }}
+      secret:
+        name: {{ .Values.clusterLogForwarder.output.secretName }}
+      url: {{ .Values.clusterLogForwarder.output.url | quote }}
+      tls:
+        insecureSkipVerify: {{ .Values.clusterLogForwarder.output.tls.insecureSkipVerify }}
+  pipelines:
+{{- range .Values.clusterLogForwarder.pipelines }}
+    - name: {{ .name }}
+      inputRefs:
+{{- range .inputRefs }}
+        - {{ . }}
+{{- end }}
+      outputRefs:
+{{- range .outputRefs }}
+        - {{ . }}
+{{- end }}
+{{- end }}
