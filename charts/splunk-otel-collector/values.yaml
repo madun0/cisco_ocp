@@ -7,7 +7,7 @@ secret:
   name: splunk-otel-collector-secret
 
 splunkPlatform:
-  endpoint: https://prd-p-6c0ti.splunkcloud.com/services/collector
+  endpoint: https://prd-p-6c0ti.splunkcloud.com:8088/services/collector
   token: ""
   index: main
   metricsIndex: metrics
