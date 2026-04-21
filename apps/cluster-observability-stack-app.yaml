@@ -19,13 +19,9 @@ spec:
     server: https://kubernetes.default.svc
     namespace: observability
   syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
     syncOptions:
-      - RespectIgnoreDifferences=true
-  ignoreDifferences:
-    - group: observability.openshift.io
-      kind: ObservabilityInstaller
-      name: cluster-observability
-      namespace: observability
-      jsonPointers:
-        - /spec/capabilities/logging
-        - /spec/capabilities/tracing/storage/size
+      - CreateNamespace=true
+      - SkipDryRunOnMissingResource=true
