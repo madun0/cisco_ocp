@@ -25,10 +25,3 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - SkipDryRunOnMissingResource=true
-  ignoreDifferences:
-    - group: observability.openshift.io
-      kind: ClusterObservability
-      jsonPointers:
-        - /spec/capabilities/tracing/enabled
-        - /spec/capabilities/tracing/storage/size
-        - /spec/capabilities/logging
